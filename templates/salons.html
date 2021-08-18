@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fair Hairdressers</title>
-</head>
-<body>
+{% extends "base.html" %}
+<!-- content is the name of the block in base.html that will receive data -->
+{% block content %}
+
+<h2>testing visibility of salons template</h2>
     {% for salon in salons %}
         {{salon.company_name}}<br>
         {{salon.category_name}}<br>
         {{salon.description}}<br>
         {{salon.warning}}<br>
         {{salon.city}}<br>
-        {% endfor %}
-</body>
-</html>
+    {% endfor %}
+
+{% endblock %}
