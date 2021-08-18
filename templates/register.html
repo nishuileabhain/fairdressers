@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+<!-- content is the name of the block in base.html that will receive data -->
+{% block content %}
+
+<h3 class=" center-align">Register</h3>
+
+<!-- code from Materialize Forms section-->
+<div class="row">
+    <!-- 6 spaces wide on a 12 space grid with 3 spaces on each side-->
+    <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('register') }}">
+      <div class="card-panel yellow">
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="username" name="username" type="text" class="validate">
+                <label for="username">Create Username</label>
+              </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">lock</i>
+                <input id="password" name="password" type="password" class="validate">
+                <label for="password">Create Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" class = "col s12 btn-large black darken-4 text-shadow">
+             REGISTER <i class="material-icons prefix">input</i>
+                </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  {% endblock %}
