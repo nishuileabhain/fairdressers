@@ -12,11 +12,38 @@
     {% endblock %}
 </head>
 <body>
-    <h1>testing base template visibility</h1>
+
+    <header>
+        <!-- navbar code and nav-extended class are from materialize -->
+        <nav class="nav-extended text-shadow purple lighten-1">
+            <div class="nav-wrapper">
+                <a href="{{ url_for('get_salons') }}" class="brand-logo">Fairdressers</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('get_salons') }}">Home</a></li>
+                    <li><a href="">Profile</a></li>
+                    <li><a href="">New Salon</a></li>
+                    <li><a href="">Manage Categories</a></li>
+                    <li><a href="">Log Out</a></li>
+                    <li><a href="">Log in</a></li>
+                    <li><a href="">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('get_salons') }}">Home</a></li>
+            <li><a href="">Profile</a></li>
+            <li><a href="">New Salon</a></li>
+            <li><a href="">Manage Categories</a></li>
+            <li><a href="">Log Out</a></li>
+            <li><a href="">Log in</a></li>
+            <li><a href="">Register</a></li>
+        </ul>
+    </header>
     <!--this is a jinja template to receive content-->
     {% block content %}
     {% endblock %}
-
 
     <!-- javasvript(jquery) is needed to run materialize-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
