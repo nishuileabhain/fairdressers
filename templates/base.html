@@ -41,16 +41,30 @@
             <li><a href="{{ url_for('register') }}">Register</a></li>
         </ul>
     </header>
-    <!--this is a jinja template to receive content-->
-    {% block content %}
-    {% endblock %}
 
-    <!-- javasvript(jquery) is needed to run materialize-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!-- Compiled and minified JavaScript from Materialize website-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="{{ url_for('static', filename= 'js/script.js' )}}"></script>
-    {% block scripts %}
-    {% endblock %}
+    <section>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class = "row-flashes">
+                        <h4 class = "yellow center-align">{{message}}</h4>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </section>
+
+    <main class="container">
+        <!--this is a jinja template to receive content-->
+        {% block content %}
+        {% endblock %}
+    </main>
+        <!-- javasvript(jquery) is needed to run materialize-->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <!-- Compiled and minified JavaScript from Materialize website-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="{{ url_for('static', filename= 'js/script.js' )}}"></script>
+        {% block scripts %}
+        {% endblock %}
 </body>
 </html>
