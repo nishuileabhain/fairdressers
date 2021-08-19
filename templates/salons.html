@@ -7,7 +7,10 @@
         <li>
             <div class="collapsible-header white-text purple lighten-1 text-shadow">
                 <i class="material-icons">keyboard_arrow_down</i>
-                <strong>{{salon.company_name}}</strong>{{salon.city}}
+                <strong>{{salon.company_name}}</strong>  -  {{salon.city}}
+                {% if salon.warning == "on" %}
+                <i class="material-icons light-purple-text text-lighten-2 tooltipped" data-position="right" data-tooltip="WARNING!">warning</i>
+                {% endif %}
             </div>
             <div class="collapsible-body">
                 <strong>{{salon.category_name}}</strong>
