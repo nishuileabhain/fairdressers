@@ -21,17 +21,20 @@ mongo = PyMongo(myapp)
 @myapp.route("/")
 @myapp.route("/get_salons")
 def get_salons():
-    salons = mongo.db.salons.find()
+    salons = list(mongo.db.salons.find())
+    # wrapping find method into a python list to enable for loop
     return render_template("salons.html", salons=salons)
 
 
 @myapp.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
+        # search db for username
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
+
         if existing_user:
-            flash("This username already exists.")
+            flash("Username already exists.")
             return redirect(url_for("register"))
 
         register = {
@@ -40,36 +43,32 @@ def register():
         }
         mongo.db.users.insert_one(register)
 
-        # put new user into a session cookie
-        session['user'] = request.form.get("username").lower()
-        flash("Registration successful")
-        return redirect(url_for("profile", username=session["user"]))
-
     return render_template("register.html")
 
 
 @myapp.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        # check if user already exists in the db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
         if existing_user:
+            # hashed password matched with user input
             if check_password_hash(existing_user["password"],
                                    request.form.get("password")):
-                session['user'] = request.form.get("username").lower()
-                flash("Welcome {}!".format(request.form.get("username")))
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(request.form.get("username")))
+
                 return redirect(url_for("profile", username=session["user"]))
 
             else:
-                # password is actually incorrect
-                flash("incorrect password or username")
+                # actually a password issue
+                flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
 
         else:
-            # username not found in db
-            flash("incorrect password or username")
+            # username doesn't exist
+            flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
     return render_template("login.html")
@@ -77,17 +76,23 @@ def login():
 
 @myapp.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # get sessions user's username from db
+    # gets session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("profile.html", username=username)
+
+    if session["user"]:
+        return render_template("profile.html", username=username)
+
+    return redirect(url_for("login"))
 
 
 @myapp.route("/logout")
 def logout():
-    flash("You have been logged out.")
+    # remove user from session cookie
+    flash("You have been logged out")
     session.pop("user")
-    return redirect( url_for("login"))
+    return redirect(url_for("login"))
+
 
 if __name__ == "__main__":
     myapp.run(host=os.environ.get('IP'),
