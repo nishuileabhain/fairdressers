@@ -2,20 +2,43 @@
 {% block content %}
     <h3 class="light-purple-text text-darken-4 center-align">Add Review</h3>
 
-    <div class="row">
+    <div class="row card-panel grey lighten-5 "><!--consider changing to white on yellow-->
         <form class="col s12" method="POST" action="">
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">account_circle</i>
-                    <input id="icon_prefix" type="text" class="validate">
-                    <label for="icon_prefix">First Name</label>
-                </div>
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">phone</i>
-                    <input id="icon_telephone" type="tel" class="validate">
-                    <label for="icon_telephone">Telephone</label>
+                    <i class="material-icons prefix light-purple-text text-darken-4 ">content_cut</i>
+                    <input id="salon_name" name="salon_name" type="text" class="validate" minlength="3" maxlength="20" required>
+                    <label for="salon_name">Company Name</label>
                 </div>
             </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix light-purple-text text-darken-4 ">location_city</i>
+                    <input id="city" name="city" type="text" class="validate" minlength="3" maxlength="20" required>
+                    <label for="city">City</label>
+                </div>
+            </div>      
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix light-purple-text text-darken-4 ">rate_review</i>
+                    <textarea id="salon_description" name="salon_description" class="materialize-textarea validate" minlength="5" maxlength="200" required></textarea>
+                    <label for="salon_description">Review</label>
+                </div>
+            </div>
+            <div class="row">
+                <!--displays a warning if there are different price lists according to gender-->
+                <div class="input-field col s12">
+                    <div class="switch">
+                        <i class="material-icons prefix light-purple-text text-darken-4 "> wc </i>
+                        <label for="gendered_pricelist">
+                            <input type="checkbox" id="gendered_pricelist" name="gendered_pricelist">
+                            <span class="lever"></span>
+                            Different pricelists for men and women?
+                        </label>
+                    </div>
+                </div>
+            </div>
+
         </form>
     </div>
 
