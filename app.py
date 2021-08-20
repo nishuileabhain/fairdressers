@@ -94,6 +94,11 @@ def logout():
     return redirect(url_for("login"))
 
 
+@myapp.route("/add_salon")
+def add_salon():
+    return render_template("add_salon.html")
+
+
 if __name__ == "__main__":
     myapp.run(host=os.environ.get('IP'),
               port=int(os.environ.get('PORT')), debug=True)
