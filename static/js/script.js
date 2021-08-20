@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
-    $('.tooltipped').tooltip();   
+    $('.tooltipped').tooltip();
+    $('select').formSelect();  
   });

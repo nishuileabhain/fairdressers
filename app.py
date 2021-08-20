@@ -96,7 +96,8 @@ def logout():
 
 @myapp.route("/add_salon")
 def add_salon():
-    return render_template("add_salon.html")
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_salon.html", categories=categories)
 
 
 if __name__ == "__main__":
