@@ -8,9 +8,13 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix light-purple-text text-darken-4 ">keyboard-down</i>
                     <select id="category_name" name="category_name" class="validate" required>
-                      <option value="" disabled selected>Choose your option</option>
+                      <option value=""  selected>Choose your option</option>
                       {% for category in categories %}
+                        {% if category.category_name == salon.category_name %}
+                        <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                        {% else %}
                         <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endif %}
                       {% endfor %}
                     </select>
                     <label for="category_name">hairdresser category</label>
@@ -19,22 +23,24 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix light-purple-text text-darken-4 ">content_cut</i>
-                    <input id="company_name" name="company_name" type="text" class="validate" minlength="3" maxlength="20" required>
+                    <input id="company_name" name="company_name" type="text" value="{{salon.company_name}}" class="validate" minlength="3" maxlength="20" required>
                     <label for="company_name">Company Name</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix light-purple-text text-darken-4 ">location_city</i>
-                    <input id="city" name="city" type="text" class="validate" minlength="3" maxlength="20" required>
+                    <input id="city" name="city" type="text" value="{{salon.city}}"  class="validate" minlength="3" maxlength="20" required>
                     <label for="city">City</label>
                 </div>
             </div>      
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix light-purple-text text-darken-4 ">rate_review</i>
-                    <textarea id="description" name="description" class="materialize-textarea validate" minlength="5" maxlength="200" required></textarea>
-                    <label for="description">Review</label>
+                    <textarea id="description" name="description" class="materialize-textarea validate" minlength="5" maxlength="200" required>
+                        {{- salon.description -}}
+                    </textarea>
+                    <label for="description" >Review</label>
                 </div>
             </div>
             <div class="row">
@@ -42,8 +48,12 @@
                 <div class="input-field col s12">
                     <div class="switch">
                         <i class="material-icons prefix light-purple-text text-darken-4 "> wc </i>
-                        <label for="gendered_pricelist">
-                            <input type="checkbox" id="gendered_pricelist" name="gendered_pricelist">
+                        <label for="warning">
+                            {% if salon.warning == "on" %}
+                                <input type="checkbox" id="warning" name="warning" checked>
+                            {% else %}
+                                <input type="checkbox" id="warning" name="warning">
+                            {% endif %}
                             <span class="lever"></span>
                             Different pricelists for men and women?
                         </label>
@@ -54,7 +64,10 @@
             <div class="row">
                 <div class="col s12 center-align">
                     <button type="submit" class="btn-large text-shadow">
-                        EDIT Review
+                        Save Changes
+                    </button>
+                    <button type="cancel" class="btn-large text-shadow">
+                        cancel
                     </button>
                 </div>
             </div>
