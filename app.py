@@ -117,6 +117,14 @@ def add_salon():
     return render_template("add_salon.html", categories=categories)
 
 
+@myapp.route("/edit_salon/<salon_id>", methods=["GET", "POST"])
+def edit_salon(salon_id):
+    # loads the review but editable
+    salon = mongo.db.salons.find_one({"_id": ObjectId(salon_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_salon.html", salon=salon, categories=categories)
+
+
 if __name__ == "__main__":
     myapp.run(host=os.environ.get('IP'),
               port=int(os.environ.get('PORT')), debug=True)
