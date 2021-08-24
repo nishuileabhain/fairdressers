@@ -42,6 +42,7 @@ def register():
             "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(register)
+        flash("new account created")
 
     return render_template("register.html")
 

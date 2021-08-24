@@ -2,15 +2,27 @@
 <!-- content is the name of the block in base.html that will receive data -->
 {% block content %}
 
+<h3 class="light-purple-text text-darken-4 center-align">All Reviews</h3>
+
+
     <ul class="collapsible">
         {% for salon in salons %}
         <li>
             <div class="collapsible-header white-text purple lighten-1 text-shadow">
+                <div class="col s3">
                 <i class="material-icons">keyboard_arrow_down</i>
+                <a class="btn-floating btn-small waves-effect waves-light pink"><i class="material-icons">delete</i></a>
+                <a class="btn-floating btn-small waves-effect waves-light light-blue"><i class="material-icons">edit</i></a>
+
+                </div>
+                <div class="col s9">
                 <strong>{{salon.company_name}}</strong>  -  {{salon.city}}
                 {% if salon.gendered_pricelist == "on" %}
                 <i class="material-icons light-purple-text text-lighten-2 tooltipped" data-position="right" data-tooltip="Pricelist is gendered">warning</i>
-                {% endif %}
+                {% endif %}                    
+                </div>
+
+
             </div>
             <div class="collapsible-body">
                 <strong>{{salon.category_name}}</strong>
