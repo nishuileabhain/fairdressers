@@ -2,8 +2,8 @@
 {% block content %}
     <h3 class="light-purple-text text-darken-4 center-align">Add Review</h3>
 
-    <div class="row card-panel grey lighten-5 "><!--consider changing to white on yellow-->
-        <form class="col s12" method="POST" action="">
+    <div class="row card-panel grey lighten-5 ">
+        <form class="col s12" method="POST" action="{{url_for('add_salon')}}">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix light-purple-text text-darken-4 ">keyboard-down</i>
@@ -19,8 +19,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix light-purple-text text-darken-4 ">content_cut</i>
-                    <input id="salon_name" name="salon_name" type="text" class="validate" minlength="3" maxlength="20" required>
-                    <label for="salon_name">Company Name</label>
+                    <input id="company_name" name="company_name" type="text" class="validate" minlength="3" maxlength="20" required>
+                    <label for="company_name">Company Name</label>
                 </div>
             </div>
             <div class="row">
@@ -33,8 +33,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix light-purple-text text-darken-4 ">rate_review</i>
-                    <textarea id="salon_description" name="salon_description" class="materialize-textarea validate" minlength="5" maxlength="200" required></textarea>
-                    <label for="salon_description">Review</label>
+                    <textarea id="description" name="description" class="materialize-textarea validate" minlength="5" maxlength="200" required></textarea>
+                    <label for="description">Review</label>
                 </div>
             </div>
             <div class="row">
@@ -50,7 +50,14 @@
                     </div>
                 </div>
             </div>
-
+                            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large text-shadow">
+                        Submit 
+                    </button>
+                </div>
+            </div>
         </form>
     </div>
 

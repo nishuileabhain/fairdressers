@@ -17,7 +17,7 @@
         <!-- navbar code and nav-extended class are from materialize -->
         <nav class="nav-extended text-shadow purple lighten-1">
             <div class="nav-wrapper">
-                <a href="{{ url_for('get_salons') }}" class="brand-logo">Fairdressers</a>
+                <a href="{{ url_for('get_salons') }}" class="brand-logo center">Fairdressers</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_salons') }}">Home</a></li>
@@ -53,7 +53,7 @@
             {% if messages %}
                 {% for message in messages %}
                     <div class = "row-flashes">
-                        <h4 class = "yellow center-align">{{message}}</h4>
+                        <h4 class = "center-align">{{message}}</h4>
                     </div>
                 {% endfor %}
             {% endif %}

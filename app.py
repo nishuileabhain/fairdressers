@@ -94,8 +94,24 @@ def logout():
     return redirect(url_for("login"))
 
 
-@myapp.route("/add_salon")
+@myapp.route("/add_salon", methods=["GET", "POST"])
 def add_salon():
+    if request.method == "POST":
+        # ternary operator so below line can be shorter
+        warning = "on" if request.form.get("warning") else "off"
+        # create a dictionary that can be passed via insert_one
+        salon = {
+            "category_name": request.form.get("category_name"),
+            "company_name": request.form.get("company_name"),
+            "description": request.form.get("description"),
+            "warning": warning,
+            "city": request.form.get("city"),
+            "created_by": session["user"]
+        }
+        mongo.db.salons.insert_one(salon)
+        flash("Review successfully added")
+        return redirect(url_for("get_salons"))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_salon.html", categories=categories)
 

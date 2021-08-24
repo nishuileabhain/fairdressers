@@ -5,3 +5,23 @@
 flashes h4 {
         line-height: 2;
 }
+
+.row-flashes {
+    background-color: black;
+    color: white;
+}
+
+body{
+    background-color: yellow;
+}
+
+.btn-large {
+    background-color: black;
+    color: white;
+
+}
+
+.collapsible li {
+    background-color: white;
+
+}
