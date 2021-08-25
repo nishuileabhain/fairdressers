@@ -142,13 +142,18 @@ def edit_salon(salon_id):
                            salon=salon, categories=categories)
 
 
-
 @myapp.route("/delete_salon/<salon_id>")
 def delete_salon(salon_id):
     # nice to have confirmation
     mongo.db.salons.remove({"_id": ObjectId(salon_id)})
     flash("Review has been deleted")
     return redirect(url_for("get_salons"))
+
+
+@myapp.route("/get_categories")
+def get_categories():
+    cats = list(mongo.db.categories.find().sort("category_name", 1))
+    return render_template("categories.html", categories=cats)
 
 
 if __name__ == "__main__":
