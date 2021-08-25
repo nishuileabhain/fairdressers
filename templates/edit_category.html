@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3 class="light-purple-text text-darken-4 center-align">change CATEGORY</h3>
+
+    <div class="row card-panel grey lighten-5 ">
+        <form class="col s12" method="POST" action="{{url_for('edit_category', category_id=category._id)}}">
+            <div class="row">
+                <div class="input-field col s12">
+                <i class="material-icons prefix light-purple-text text-darken-4 ">add</i>
+                <input id="category_name" name="category_name" type="text" class="validate" value="{{category.category_name}}" minlength="5" maxlength="20" required>
+                </input>
+                    <label for="category_name">Category name</label>
+                </div>
+            </div>
+           
+                            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large text-shadow">
+                        Submit Category Change
+                    </button>
+                    <a href="{{ url_for('get_categories') }}" class="btn-large red text-shadow">cancel</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}
