@@ -135,12 +135,20 @@ def edit_salon(salon_id):
         mongo.db.salons.update({"_id": ObjectId(salon_id)}, changes)
         flash("Review successfully changed")
         return redirect(url_for("get_salons"))
-        # why remove this line and return to edit page?
 
     salon = mongo.db.salons.find_one({"_id": ObjectId(salon_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_salon.html", salon=salon,
-                          categories=categories)
+    return render_template("edit_salon.html",
+                           salon=salon, categories=categories)
+
+
+
+@myapp.route("/delete_salon/<salon_id>")
+def delete_salon(salon_id):
+    # nice to have confirmation
+    mongo.db.salons.remove({"_id": ObjectId(salon_id)})
+    flash("Review has been deleted")
+    return redirect(url_for("get_salons"))
 
 
 if __name__ == "__main__":
