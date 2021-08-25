@@ -2,7 +2,7 @@
 <!-- content is the name of the block in base.html that will receive data -->
 {% block content %}
 
-<h3 class=" center-align">Login</h3>
+<h3 class=" center-align">Welcome, {{ username }}</h3>
 
 <!-- code from Materialize Forms section-->
 <div class="row">
@@ -12,6 +12,16 @@
         <h3 class="center-align purple-text text-darken-4">
           {{ username }}'s profile
         </h3>
+      </div>
+      <div class="card-panel">
+        <p class="center-align purple-text text-darken-4">
+          {% if session.user =="admin" %}
+          This is an admin account. You can write reviews and also edit or delete any existing reviews.
+          {% else %}
+          You may write your own reviews and edit them.
+          {% endif %}
+
+      </p>
       </div>
     </div>
   </div>
