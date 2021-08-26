@@ -26,6 +26,13 @@ def get_salons():
     return render_template("salons.html", salons=salons)
 
 
+@myapp.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    sal = list(mongo.db.salons.find({"$text": {"$search": query}}))
+    return render_template("salons.html", salons=sal)
+
+
 @myapp.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":

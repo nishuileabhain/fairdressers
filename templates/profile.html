@@ -5,25 +5,34 @@
 <h3 class=" center-align">Welcome, {{ username }}</h3>
 
 <!-- code from Materialize Forms section-->
-<div class="row">
-    <!-- 6 spaces wide on a 12 space grid with 3 spaces on each side-->
-    <fodivrm class="col s12 m6 offset-m3">
-      <div class="card-panel">
-        <h3 class="center-align purple-text text-darken-4">
-          {{ username }}'s profile
-        </h3>
-      </div>
-      <div class="card-panel">
+<div class="row ">
+  <!-- 6 spaces wide on a 12 space grid with 3 spaces on each side-->
+  <div class="col s12 m10 offset-m1 center-align">
+    <!-- 
+    <div class=" row card-panel">
+      <h3 class="purple-text text-darken-4">
+        {{ username }}'s profile
+      </h3>
+    </div>
+    -->
+      <div class=" row card-panel">
         <p class="center-align purple-text text-darken-4">
           {% if session.user =="admin" %}
           This is an admin account. You can write reviews and also edit or delete any existing reviews.
           {% else %}
-          You may write your own reviews and edit them.
+          Write a review. You can edit them later if you need to.
           {% endif %}
-
-      </p>
+        </p>
       </div>
-    </div>
-  </div>
+      <div class="row card-panel">
+          <a href="{{ url_for('add_salon') }}" class="waves-effect waves-light btn-large">New Review</a>
+      </div>
+      <!-- pulls in all reviews created by this user-->
+      <div class="row card-panel">
+        <strong>{{username}}'s reviews:</strong>
+
+      </div>
+  </div><!-- end s12 col-->
+</div><!-- endrow-->
 
   {% endblock %}

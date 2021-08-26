@@ -15,7 +15,8 @@ body{
     background-color: yellow;
 }
 
-.btn-large {
+
+.btn-large, .btn {
     background-color: black;
     color: white;
 
