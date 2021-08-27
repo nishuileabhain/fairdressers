@@ -26,6 +26,18 @@ def get_salons():
     return render_template("salons.html", salons=salons)
 
 
+# # same as above but to display a list of reviews on user's profile page
+# @myapp.route("/get_my_reviews")
+# def get_my_reviews():
+#     salons = list(mongo.db.salons.find())  # EDITED BY JO FOR TESTING
+#     print(salons)
+#     return render_template("profile.html", salons=salons)
+#     # tried with and without list conversion and with and without for loop
+
+# # print("this is from get_my_reviews")
+# # get_my_reviews()
+
+
 @myapp.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -66,7 +78,6 @@ def login():
                                    request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
-
                 return redirect(url_for("profile", username=session["user"]))
 
             else:
@@ -89,7 +100,9 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        salons = list(mongo.db.salons.find())
+        return render_template("profile.html", username=username,
+                               salons=salons)
 
     return redirect(url_for("login"))
 

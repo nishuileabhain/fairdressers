@@ -27,11 +27,51 @@
       <div class="row card-panel">
           <a href="{{ url_for('add_salon') }}" class="waves-effect waves-light btn-large">New Review</a>
       </div>
-      <!-- pulls in all reviews created by this user-->
-      <div class="row card-panel">
-        <strong>{{username}}'s reviews:</strong>
+      <!-- pulls in all reviews and filters to those created by this user-->
+<ul class="collapsible popout">
+  <li>
+    <div class="collapsible-header"><i class="material-icons">insert_emoticon</i><strong>My Reviews:</strong></div>
+  </li>
+  {% for salon in salons %}
+  {% if (session.user|lower == salon.created_by|lower) %}
+  <li>
+      <div class="collapsible-header white-text purple lighten-1 text-shadow">
+          <div class="col s3">
+          <i class="material-icons">arrow_drop_down</i>
+          <!-- filters visibility of buttons to change reviews to only the creator OR the admin user -->
+          {% if (session.user|lower == salon.created_by|lower) or session.user =="admin" %}
+          <a href="{{url_for('edit_salon', salon_id=salon._id)}}" class="btn-floating btn-small waves-effect waves-light light-blue"><i class="material-icons">edit</i></a>
+              {% if session.user =="admin" %}
+              <a href="{{url_for('delete_salon', salon_id=salon._id)}}" class="btn-floating btn-small waves-effect waves-light pink"><i class="material-icons">delete</i></a>
+              {% endif %}
+          {% endif %}
+          </div>
+          <div class="col s9">
+          <strong>{{salon.company_name}},  {{salon.city}}</strong>
+          {% if salon.warning == "on" %}
+          <i class="material-icons light-purple-text text-lighten-2 tooltipped" data-position="right" data-tooltip="Pricelist is gendered">warning</i>
+          {% endif %}                    
+          </div>
+
 
       </div>
+      <div class="collapsible-body">
+          <strong>{{salon.category_name}}</strong>
+          <p>{{salon.description}}</p>
+          <p><em>Created By: {{ salon.created_by }}</em></p>
+      </div>
+  </li>
+  {% endif %}                    
+  {% endfor %}
+  <!--a jenja for loop will dynamically provide the repetion of the above list items-->
+</ul>
+<div class="col s12">
+  <p class="center-align">
+    Want to read other people's reviews? <a href="{{ url_for ('get_salons') }}" class="purple-text text-darken-4">See all reviews</a>
+  </p>
+</div>
+
+
   </div><!-- end s12 col-->
 </div><!-- endrow-->
 
