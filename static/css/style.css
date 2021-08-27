@@ -35,3 +35,7 @@ body{
     margin: 5px;
     line-height: 40px;
 }
+
+.collapsible-header {
+    text-align: left;
+}

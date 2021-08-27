@@ -19,23 +19,18 @@ mongo = PyMongo(myapp)
 
 
 @myapp.route("/")
+@myapp.route("/start")
+def start():
+    salons = list(mongo.db.salons.find())
+    # wrapping find method into a python list to enable for loop
+    return render_template("index.html", salons=salons)
+
+
 @myapp.route("/get_salons")
 def get_salons():
     salons = list(mongo.db.salons.find())
     # wrapping find method into a python list to enable for loop
     return render_template("salons.html", salons=salons)
-
-
-# # same as above but to display a list of reviews on user's profile page
-# @myapp.route("/get_my_reviews")
-# def get_my_reviews():
-#     salons = list(mongo.db.salons.find())  # EDITED BY JO FOR TESTING
-#     print(salons)
-#     return render_template("profile.html", salons=salons)
-#     # tried with and without list conversion and with and without for loop
-
-# # print("this is from get_my_reviews")
-# # get_my_reviews()
 
 
 @myapp.route("/search", methods=["GET", "POST"])

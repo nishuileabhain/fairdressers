@@ -11,7 +11,7 @@
             <div class="input-field col s12 m8">
                 <i class="material-icons prefix light-purple-text">search</i>
                 <input type="text" name="query" id="query" minlength="3" class="validate" required>
-                <label for="query">search tasks</label>
+                <label for="query">search reviews</label>
             </div>
             <div class="col s12 m4">
                 <a href="{{ url_for('get_salons') }}" class="btn black text-shadow">reset</a>
@@ -22,6 +22,9 @@
 
 <!--list of all existing reviews-->
     <ul class="collapsible popout">
+        <li>
+            <div class="collapsible-header"><i class="material-icons">insert_emoticon</i><strong>All Reviews:</strong></div>
+          </li>
         {% for salon in salons %}
         <li>
             <div class="collapsible-header white-text purple lighten-1 text-shadow">
