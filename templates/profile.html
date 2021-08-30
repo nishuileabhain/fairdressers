@@ -25,7 +25,7 @@
         </p>
       </div>
       <div class="row card-panel">
-          <a href="{{ url_for('add_salon') }}" class="waves-effect waves-light btn-large">New Review</a>
+          <a href="{{ url_for('add_salon') }}" class="waves-effect waves-purple btn-large">New Review</a>
       </div>
       <!-- pulls in all reviews and filters to those created by this user-->
 <ul class="collapsible popout">
@@ -40,9 +40,9 @@
           <i class="material-icons">arrow_drop_down</i>
           <!-- filters visibility of buttons to change reviews to only the creator OR the admin user -->
           {% if (session.user|lower == salon.created_by|lower) or session.user =="admin" %}
-          <a href="{{url_for('edit_salon', salon_id=salon._id)}}" class="btn-floating btn-small waves-effect waves-light light-blue"><i class="material-icons">edit</i></a>
+          <a href="{{url_for('edit_salon', salon_id=salon._id)}}" class="btn-floating btn-small waves-effect waves-purple "><i class="material-icons">edit</i></a>
               {% if session.user =="admin" %}
-              <a href="{{url_for('delete_salon', salon_id=salon._id)}}" class="btn-floating btn-small waves-effect waves-light pink"><i class="material-icons">delete</i></a>
+              <a href="{{url_for('delete_salon', salon_id=salon._id)}}" class="btn-floating btn-small waves-effect waves-red "><i class="material-icons">delete</i></a>
               
           <!-- BUG - the admin will never see this profile page because they will be logged in as admin -->
 

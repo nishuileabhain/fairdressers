@@ -34,25 +34,23 @@
                 <i class="material-icons">arrow_drop_down</i>
                 <!-- filters visibility of buttons to change reviews to only the creator OR the admin user -->
                 {% if (session.user|lower == salon.created_by|lower) or session.user =="admin" %}
-                <a href="{{url_for('edit_salon', salon_id=salon._id)}}" class="btn-floating btn-small waves-effect waves-light light-blue"><i class="material-icons">edit</i></a>
+                <a href="{{url_for('edit_salon', salon_id=salon._id)}}" class="btn-floating btn-small waves-effect waves-purple light-blue"><i class="material-icons">edit</i></a>
                     {% if session.user =="admin" %}
-                    <a href="#mymodal-{{ loop.index }}" class="btn-floating btn-small waves-effect waves-light pink modal-trigger"><i class="material-icons">delete</i></a>
-                                          <!-- Modal Trigger 
-                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>-->
-                    <!-- Modal Structure -->
+                    <a href="#mymodal-{{ loop.index }}" class="btn-floating btn-small waves-effect waves-purple pink modal-trigger"><i class="material-icons">delete</i></a>
+                                          
                     <div id="mymodal-{{ loop.index }}" class="modal">
-                        <div class="modal-content">
-                        <h4>delete</h4>
-                        <p>do you want to delete or not? </p>
+                        <div class="modal-content black">
+                        <h4>Delete Review</h4>
+                        <p>Do you want to delete the review of {{salon.company_name|capitalize()}} by {{ salon.created_by|capitalize() }}? </p>
                         </div>
 
                         <div class="modal-footer">
                             <a href="{{url_for('delete_salon', salon_id=salon._id)}}"
-                                class="modal-close waves-effect waves-green btn-flat">Yes</a>
+                                class="modal-close waves-effect waves-yellow btn-flat">Yes</a>
                         </div>
                         <div class="modal-footer">
                             <a href="{{url_for('get_salons')}}"
-                                class="modal-close waves-effect waves-green btn-flat">No</a>
+                                class="modal-close waves-effect waves-yellow btn-flat">No</a>
                         </div>
                     </div>
                     {% endif %}
