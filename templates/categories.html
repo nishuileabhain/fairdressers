@@ -19,10 +19,32 @@
             </div>
             <div class="card-action">
                 <a href="{{url_for('edit_category', category_id=category._id)}}" class="btn">edit</a>
-                <a href="{{url_for('delete_category', category_id=category._id)}}" class="btn">delete</a>
-            </div>
+                <!-- <a href="{{url_for('delete_category', category_id=category._id)}}" class="waves-effect waves-light btn modal-trigger">delete</a>-->
+
+                <a href="#confirm_delete-{{ loop.index }}" class="waves-effect waves-light btn modal-trigger">delete</a>
+                <!-- Modal Trigger 
+                <a class="waves-effect waves-light btn modal-trigger" href="#confirm_delete">test modal</a>-->
+
+                <!-- Modal Structure -->
+                <div id="confirm_delete-{{ loop.index }}" class="modal">
+                    <div class="modal-content">
+                        <h4>Delete</h4>
+                        <p>Are you sure you want to delete the {{category.category_name}} category?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{url_for('delete_category', category_id=category._id)}}"
+                            class="modal-close waves-effect waves-green btn-flat">Yes</a>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{url_for('get_categories')}}"
+                            class="modal-close waves-effect waves-green btn-flat">No</a>
+                    </div>
+                </div>
+
+            </div><!--  EO card-action -->
         </div>
     </div>
+
     {% endfor %}
 </div>
 
