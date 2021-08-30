@@ -36,8 +36,27 @@
                 {% if (session.user|lower == salon.created_by|lower) or session.user =="admin" %}
                 <a href="{{url_for('edit_salon', salon_id=salon._id)}}" class="btn-floating btn-small waves-effect waves-light light-blue"><i class="material-icons">edit</i></a>
                     {% if session.user =="admin" %}
-                    <a href="{{url_for('delete_salon', salon_id=salon._id)}}" class="btn-floating btn-small waves-effect waves-light pink"><i class="material-icons">delete</i></a>
+                    <a href="#mymodal-{{ loop.index }}" class="btn-floating btn-small waves-effect waves-light pink modal-trigger"><i class="material-icons">delete</i></a>
+                                          <!-- Modal Trigger 
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>-->
+                    <!-- Modal Structure -->
+                    <div id="mymodal-{{ loop.index }}" class="modal">
+                        <div class="modal-content">
+                        <h4>delete</h4>
+                        <p>do you want to delete or not? </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <a href="{{url_for('delete_salon', salon_id=salon._id)}}"
+                                class="modal-close waves-effect waves-green btn-flat">Yes</a>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="{{url_for('get_salons')}}"
+                                class="modal-close waves-effect waves-green btn-flat">No</a>
+                        </div>
+                    </div>
                     {% endif %}
+
                 {% endif %}
                 </div>
                 <div class="col s9">
