@@ -4,7 +4,7 @@ from flask import (Flask, redirect, flash,
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from datetime import date
 if os.path.exists("env.py"):
     import env
 
@@ -116,6 +116,7 @@ def add_salon():
     if request.method == "POST":
         # ternary operator so below line can be shorter
         warning = "on" if request.form.get("warning") else "off"
+        today = date.today()
         # create a dictionary that can be passed via insert_one
         salon = {
             "category_name": request.form.get("category_name"),
@@ -124,7 +125,8 @@ def add_salon():
             "description": request.form.get("description"),
             "warning": warning,
             "city": request.form.get("city"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "date_created": today.strftime("%B %d, %Y")
         }
         mongo.db.salons.insert_one(salon)
         flash("Review successfully added")
@@ -141,6 +143,7 @@ def edit_salon(salon_id):
     if request.method == "POST":
         # ternary operator so below line can be shorter
         warning = "on" if request.form.get("warning") else "off"
+        today = date.today()
         # create a dictionary that can be passed via insert_one
         changes = {
             "category_name": request.form.get("category_name"),
@@ -150,7 +153,7 @@ def edit_salon(salon_id):
             "warning": warning,
             "city": request.form.get("city"),
             "created_by": session["user"],
-            "date_created": request.form.get("date_created")
+            "date_created": today.strftime("%B %d, %Y")
         }
         mongo.db.salons.update({"_id": ObjectId(salon_id)}, changes)
         flash("Review successfully changed")
