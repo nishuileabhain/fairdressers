@@ -126,7 +126,7 @@ def add_salon():
             "warning": warning,
             "city": request.form.get("city"),
             "created_by": session["user"],
-            "date_created": today.strftime("%B %d, %Y")
+            "date_created": today.strftime("%Y-%B-%d")
         }
         mongo.db.salons.insert_one(salon)
         flash("Review successfully added")
@@ -153,7 +153,7 @@ def edit_salon(salon_id):
             "warning": warning,
             "city": request.form.get("city"),
             "created_by": session["user"],
-            "date_created": today.strftime("%B %d, %Y")
+            "date_created": today.strftime("%Y-%B-%d")
         }
         mongo.db.salons.update({"_id": ObjectId(salon_id)}, changes)
         flash("Review successfully changed")

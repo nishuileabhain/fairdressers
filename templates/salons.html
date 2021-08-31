@@ -76,10 +76,9 @@
             </div>
             <div class="collapsible-body">
                 <strong>{{salon.category_name}}</strong>
-                <p>Contact person: {{salon.contact_name}}</p>               
-                <p>{{salon.description}}</p>
-                <p>date created: {{salon.date_created}}</p>               
-                <p><em>Created By: {{ salon.created_by }}</em></p>
+                <p><em>Contact person: {{salon.contact_name}}</em></p>               
+                <p>{{salon.description}}</p>             
+                <p><em>Created By: {{ salon.created_by }} on {{salon.date_created}}</em></p>
             </div>
         </li>
         {% endfor %}
