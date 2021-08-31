@@ -4,6 +4,7 @@ from flask import (Flask, redirect, flash,
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+
 if os.path.exists("env.py"):
     import env
 
@@ -119,6 +120,7 @@ def add_salon():
         salon = {
             "category_name": request.form.get("category_name"),
             "company_name": request.form.get("company_name"),
+            "contact_name": request.form.get("contact_name"),
             "description": request.form.get("description"),
             "warning": warning,
             "city": request.form.get("city"),
@@ -129,6 +131,7 @@ def add_salon():
         return redirect(url_for("get_salons"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
+
     return render_template("add_salon.html", categories=categories)
 
 
@@ -142,19 +145,20 @@ def edit_salon(salon_id):
         changes = {
             "category_name": request.form.get("category_name"),
             "company_name": request.form.get("company_name"),
+            "contact_name": request.form.get("contact_name"),
             "description": request.form.get("description"),
             "warning": warning,
             "city": request.form.get("city"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "date_created": request.form.get("date_created")
         }
         mongo.db.salons.update({"_id": ObjectId(salon_id)}, changes)
         flash("Review successfully changed")
         return redirect(url_for("get_salons"))
 
     salon = mongo.db.salons.find_one({"_id": ObjectId(salon_id)})
-    categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_salon.html",
-                           salon=salon, categories=categories)
+                           salon=salon)
 
 
 @myapp.route("/delete_salon/<salon_id>")
