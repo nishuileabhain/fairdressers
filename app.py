@@ -29,8 +29,10 @@ def start():
 
 @myapp.route("/get_salons")
 def get_salons():
-    salons = list(mongo.db.salons.find())
+    # salons = list(mongo.db.salons.find())
+    salons = list(mongo.db.salons.find().sort("city"))
     # wrapping find method into a python list to enable for loop
+
     return render_template("salons.html", salons=salons)
 
 

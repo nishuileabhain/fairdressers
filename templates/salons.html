@@ -80,7 +80,8 @@
                 {% endif %}
                 </div>
                 <div class="col s8">
-                <strong>{{salon.company_name}},  {{salon.city}}</strong>
+                <strong>{{salon.company_name}}
+                    {% if salon.category_name %}({{salon.category_name}}){% endif %},  {{salon.city}}</strong>
                 {% if salon.warning == "on" %}
                 <i class="material-icons light-purple-text text-lighten-2 tooltipped" data-position="right" data-tooltip="Pricelist is gendered">warning</i>
                 {% endif %}                    
@@ -89,9 +90,10 @@
 
             </div>
             <div class="collapsible-body">
-                <strong>{{salon.category_name}}</strong>
-                <p><em>Contact person: {{salon.contact_name}}</em></p>               
-                <p>{{salon.description}}</p>             
+                <p>{{salon.description}}</p>
+                {% if salon.contact_name %}
+                <p><em>Ask for {{salon.contact_name}}</em></p>               
+                {% endif %}
                 <p><em>Created By: {{ salon.created_by }} on {{salon.date_created}}</em></p>
             </div>
         </li>
