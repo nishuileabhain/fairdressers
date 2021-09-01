@@ -1,10 +1,22 @@
 {% extends "base.html" %}
 <!-- content is the name of the block in base.html that will receive data -->
 {% block content %}
-
-<h3 class=" center-align">Login</h3>
-
+<!-- code adapted from Materialize Media section-->
+<div class="col s12">
+  <div class="card-panel black">
+    <div class="row valign-wrapper">
+      <div class="col s4">
+        <img src="/static/images/loginface.jpg" alt="young transgender person with a large polariod camera" class="responsive-img">
+      </div>
+      <div class="col s8">
+        <h1 class="white-text">Log in</h1>
+        <h3 class="white-text">to your account</h3>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- code from Materialize Forms section-->
+<div class="card-panel yellow">
 <div class="row">
     <!-- 6 spaces wide on a 12 space grid with 3 spaces on each side-->
     <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('login') }}">
@@ -31,7 +43,7 @@
       </div>
     </form>
   </div>
-
+</div>
   <div class="row">
     <div class="col s12">
       <p class="center-align">

@@ -2,22 +2,37 @@
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5 );
 }
 
-flashes h4 {
+.flashes h4 {
         line-height: 2;
 }
 
+
+
 .row-flashes {
-    background-color: black;
+    background-color: pink;
     color: white;
     text-align: center;
 }
 
 body{
-    background-color: yellow;
+    background-color: #ba68c8;
 }
 
+.btn:hover, .btn-large:hover, .btn-small:hover .btn-floating:hover {
+    background-color: purple;
+}
 
-.btn-large, .btn {
+.edit-btn{
+    background-color: blue;
+    color: white;   
+}
+
+.delete-btn{
+    background-color: pink;
+    color: white;   
+}
+
+.btn-large {
     background-color: black;
     color: white;
 

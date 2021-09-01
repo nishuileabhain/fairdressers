@@ -1,14 +1,28 @@
 {% extends "base.html" %}
 <!-- content is the name of the block in base.html that will receive data -->
 {% block content %}
-<h3 class="light-purple-text text-darken-4 center-align">About Fairdressers </h3>
-
-<div class=" row card-panel">
+<!-- code adapted from Materialize Media section-->
+<div class="col s12">
+  <div class="card-panel black">
+    <div class="row valign-wrapper">
+      <div class="col s4">
+        <img src="/static/images/aboutface.jpg" alt="person getting their head shaved into a mohawk style" class="responsive-img">
+      </div>
+      <div class="col s8">
+        <h1 class="white-text">About</h1>
+        <h3 class="white-text">Fairdressers</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<div class=" row card-panel yellow">
     <div class="col s12 m12">
         <h4 class="center-align purple-text text-darken-4">
-            Why we need hairdressers (and/or barbers) to charge according to the haircut
-            instead of the person who is getting it.
+            We need hairdressing services that charge customers equally.
         </h4>
+        <h3 class="center-align purple-text text-darken-4">
+          Recommend a business that does.
+      </h3>
     </div>
 </div>
 
@@ -60,15 +74,15 @@
     </div>
   </div>
 
-
+  <div class="row card-panel yellow">
   <ul class="collection with-header">
-    <li class="collection-header"><h4>Further Reading</h4></li>
-    <li class="collection-item"><div>Why do women pay more for a short haircut?<a href="https://www.bbc.com/news/uk-england-50691249" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-    <li class="collection-item"><div>The Dresscode Project<a href="https://www.dresscodeproject.com/" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-    <li class="collection-item"><div>Women's Haircuts Always Cost More Than Men's. Here's How It Could All Change<a href="https://behindthechair.com/articles/how-to-implement-gender-neutral-pricing/" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-    <li class="collection-item"><div>HOW TO IMPLEMENT GENDER-NEUTRAL PRICING<a href="https://www.huffpost.com/entry/womens-haircuts-cost-more_l_5e9600fcc5b6e9d524adea72" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+    <li class="collection-header black white-text"><h4>Further Reading</h4></li>
+    <li class="collection-item"><div>Why do women pay more for a short haircut?<a href="https://www.bbc.com/news/uk-england-50691249" class="secondary-content"><i class="material-icons purple-text">send</i></a></div></li>
+    <li class="collection-item"><div>The Dresscode Project<a href="https://www.dresscodeproject.com/" class="secondary-content"><i class="material-icons purple-text">send</i></a></div></li>
+    <li class="collection-item"><div>Women's Haircuts Always Cost More Than Men's. Here's How It Could All Change<a href="https://behindthechair.com/articles/how-to-implement-gender-neutral-pricing/" class="secondary-content"><i class="material-icons purple-text">send</i></a></div></li>
+    <li class="collection-item"><div>HOW TO IMPLEMENT GENDER-NEUTRAL PRICING<a href="https://www.huffpost.com/entry/womens-haircuts-cost-more_l_5e9600fcc5b6e9d524adea72" class="secondary-content"><i class="material-icons purple-text">send</i></a></div></li>
   </ul>
-
+</div>
 <!--search field-->
 <div class="row card-panel white">
     <form action="{{ url_for('search') }}" method="post" class="col s12">

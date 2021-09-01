@@ -2,8 +2,20 @@
 <!-- content is the name of the block in base.html that will receive data -->
 {% block content %}
 
-<h3 class="light-purple-text text-darken-4 center-align">All Reviews</h3>
-
+<!-- code adapted from Materialize Media section-->
+<div class="col s12">
+    <div class="card-panel black">
+      <div class="row valign-wrapper">
+        <div class="col s4">
+          <img src="/static/images/allreviewsfaces.jpg" alt="two people with short haircuts chatting on a bench" class="responsive-img">
+        </div>
+        <div class="col s8">
+          <h1 class="white-text">Reviews</h1>
+          <h3 class="white-text">Read them. Write them.</h3>
+        </div>
+      </div>
+    </div>
+  </div>
 <!--search field-->
 <div class="row"><!-- card-panel new row -->
     <form class="col s12" action="{{ url_for('search') }}" method="post" ><!-- col s12 -->
