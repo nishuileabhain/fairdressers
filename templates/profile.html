@@ -2,13 +2,25 @@
 <!-- content is the name of the block in base.html that will receive data -->
 {% block content %}
 
-<h3 class=" center-align">Welcome, {{ username|capitalize }}</h3>
+<!-- code adapted from Materialize Media section-->
+<div class="col s12">
+  <div class="card-panel black">
+  <div class="row valign-wrapper">
+    <div class="col s4">
+      <img src="/static/images/rainbowhead.jpg" alt="child smiling with rainbow coloured hair" class="responsive-img">
+    </div><!--EO col-->
+    <div class="col s8">
+      <h3 class="white-text">Welcome,</h3>
+      <h1 class="white-text">{{ username|capitalize }}</h1>
+    </div><!--EO col-->
+  </div><!--EO row valign-wrapper-->
+</div><!--EO card-panel-->
+</div><!--EO col-->
 
 <!-- code from Materialize Forms section-->
 <div class="row ">
   <!-- 10 spaces wide on a 12 space grid with 1 space on each side-->
-  <div class="col s12 m10 offset-m1 center-align">
-
+  <div class="col s12 center-align">
     <div class="row card-panel">
       <p class="center-align">
         {% if session.user =="admin" %}
@@ -17,14 +29,10 @@
         Write a review. You can edit them later if you need to.
         {% endif %}
       </p>
-    </div>
-    <div class="row card-panel">
       <a href="{{ url_for('add_salon') }}" class="btn purple waves-effect waves-light">New Review</a>
     </div>
     <!-- pulls in all reviews and filters to those created by this user-->
-    <div class="row card-panel black">
-
-
+    <div class="row card-panel yellow">
       <ul class="collapsible popout">
         <li>
           <div class="collapsible-header"><i class="material-icons">insert_emoticon</i><strong>{{ username }}'s

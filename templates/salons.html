@@ -17,7 +17,8 @@
     </div>
   </div>
 <!--search field-->
-<div class="row"><!-- card-panel new row -->
+<div class="card-panel yellow">
+<div class=" card-panel "><!-- card-panel new row -->
     <form class="col s12" action="{{ url_for('search') }}" method="post" ><!-- col s12 -->
         <div class="row valign-wrapper center-align"><!-- new row -->
             <div class="input-field col s12 m8"><!-- col s8 -->
@@ -34,12 +35,13 @@
         </div>
     </form>
 </div>
-
+</div>
 <div class="row card-panel center-align">
     <div class="col s12">
     <a href="{{ url_for('add_salon') }}" class="waves-effect black waves-purple btn-large ">New Review</a>
 </div>
 </div>
+<div class="card-panel yellow">
 <!--list of all existing reviews-->
 <div class="row"><!-- new row -->
     <div class="col s12 m12"><!-- col s12 -->
@@ -98,4 +100,5 @@
     </ul>
     </div>
 </div>            
+</div>
 {% endblock %}
