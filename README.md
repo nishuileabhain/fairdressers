@@ -45,7 +45,7 @@ This is a community-driven resource to support hairdressers that offer gender ne
 Colour scheme indicates that this website serves non binary people by using the colours of the non binary flag, which are black, white, yellow and purple. This colour scheme would be familiar and welcoming to people concerned with gender binary issues.
 The flash messages are pink which is a colour synonymous with the LGBT community and the transgender flag.
  * Typography
-The font has been taken from Materialize CSS
+The font has been taken from Materialize CSS (font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;)
  * Imagery
 The imagery throughout the site contains people with short hair, many of whom are female or of ambiguous gender. There are also positive representations of the LGBT/NB/transgender community included throughout. 
  * Wireframes
@@ -69,14 +69,6 @@ Interactive elements
 * JavaScript
 
 ## Frameworks, Libraries & Programs Used
-Bootstrap 4.4.1:
-Bootstrap was used to assist with the responsiveness and styling of the website.
-Hover.css:
-Hover.css was used on the Social Media icons in the footer to add the float transition while being hovered over.
-Google Fonts:
-Google fonts were used to import the 'Titillium Web' font into the style.css file which is used on all pages throughout the project.
-Font Awesome:
-Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
 * jQuery:
 jQuery came with Bootstrap to make the navbar responsive but was also used for the smooth scroll function in JavaScript.
 Git
