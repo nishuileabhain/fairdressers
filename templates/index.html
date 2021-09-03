@@ -25,12 +25,29 @@
       </h3>
     </div>
 </div>
-
+<!--search field-->
+<div class="row card-panel white">
+  <form action="{{ url_for('search') }}" method="post" class="col s12">
+      <div class="row valign-wrapper center-align">
+          <div class="input-field col s12 m8">
+              <i class="material-icons prefix light-purple-text">search</i>
+              <input type="text" name="query" id="query" minlength="3" class="validate" required>
+              <label for="query">Search Reviews by name, city, or content</label>
+          </div>
+          <div class="col s12 m4">
+              <button type="submit" class="light-blue darken-1 btn ">
+              Search
+              </button>
+              <a href="{{ url_for('get_salons') }}" class="pink btn ">all reviews</a>
+          </div>
+      </div>
+  </form>
+</div>
     <div class="col s12 m8 offset-m2 l6 offset-l3">
         <div class="card-panel grey lighten-5 z-depth-1">
           <div class="row valign-wrapper">
             <div class="col s2">
-              <img src="/static/images/rainbow_face.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+              <img src="/static/images/pexels-barcelosfotos-2859616.jpg" alt="young person with a rainbow reflected on their face" class="circle responsive-img"> <!-- notice the "circle" class -->
             </div>
             <div class="col s10">
               <span class="black-text">
@@ -52,7 +69,7 @@
               </span>
             </div>
              <div class="col s2">
-              <img src="/static/images/masc_woman.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+              <img src="/static/images/pexels-carolina-pedrosa-6760115.jpg" alt="woman with short hair and tattoos" class="circle responsive-img"> <!-- notice the "circle" class -->
             </div>           
           </div>
         </div>
@@ -62,7 +79,7 @@
     <div class="card-panel grey lighten-5 z-depth-1">
       <div class="row valign-wrapper">
         <div class="col s2">
-          <img src="/static/images/short_hair.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+          <img src="/static/images/pexels-rachel-claire-4992586.jpg" alt="young woman with short hair and large earrings" class="circle responsive-img"> <!-- notice the "circle" class -->
         </div>
         <div class="col s10">
           <span class="black-text">
@@ -74,6 +91,7 @@
     </div>
   </div>
 
+  <!--further resources-->
   <div class="row card-panel yellow">
   <ul class="collection with-header">
     <li class="collection-header black white-text"><h4>Further Reading</h4></li>
@@ -83,22 +101,6 @@
     <li class="collection-item"><div>HOW TO IMPLEMENT GENDER-NEUTRAL PRICING<a href="https://www.huffpost.com/entry/womens-haircuts-cost-more_l_5e9600fcc5b6e9d524adea72" class="secondary-content"><i class="material-icons purple-text">send</i></a></div></li>
   </ul>
 </div>
-<!--search field-->
-<div class="row card-panel white">
-    <form action="{{ url_for('search') }}" method="post" class="col s12">
-        <div class="row valign-wrapper center-align">
-            <div class="input-field col s12 m8">
-                <i class="material-icons prefix light-purple-text">search</i>
-                <input type="text" name="query" id="query" minlength="3" class="validate" required>
-                <label for="query">search reviews on this website</label>
-            </div>
-            <div class="col s12 m4">
-                <a href="{{ url_for('get_salons') }}" class="btn black text-shadow">reset</a>
-            </div>
-        </div>
-    </form>
-</div>
-
 
             
 

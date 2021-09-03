@@ -7,8 +7,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix light-purple-text text-darken-4 ">keyboard-down</i>
-                    <select id="category_name" name="category_name" class="validate" required>
-                      <option value=""  selected>Choose your option</option>
+                    <select id="category_name" name="category_name" class="validate">
+                      <option value=""  disabled>Choose category</option>
                       {% for category in categories %}
                         {% if category.category_name == salon.category_name %}
                         <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
@@ -29,9 +29,9 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix light-purple-text text-darken-4 ">content_cut</i>
+                    <i class="material-icons prefix light-purple-text text-darken-4 ">person</i>
                     <input id="contact_name" name="contact_name" type="text" value="{{salon.contact_name}}" class="validate" minlength="3" maxlength="20" >
-                    <label for="contact_name">Company Name</label>
+                    <label for="contact_name">Contact Name</label>
                 </div>
             </div>
             <div class="row">
@@ -61,8 +61,7 @@
                             {% else %}
                                 <input type="checkbox" id="warning" name="warning">
                             {% endif %}
-                            <span class="lever"></span>
-                            Different pricelists for men and women?
+                            <span><strong>Two pricelists?</strong></span>                        
                         </label>
                     </div>
                 </div>
