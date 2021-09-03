@@ -16,24 +16,26 @@
       </div>
     </div>
   </div>
-<!--search field-->
-<div class="card-panel yellow">
-<div class=" card-panel "><!-- card-panel new row -->
-    <form class="col s12" action="{{ url_for('search') }}" method="post" ><!-- col s12 -->
-        <div class="row valign-wrapper center-align"><!-- new row -->
-            <div class="input-field col s12 m8"><!-- col s8 -->
-                <i class="material-icons prefix light-purple-text">search</i>
-                <input type="text" name="query" id="query" minlength="3" class="validate" >
-                <label for="query">search reviews by name, content, or city</label>
+<!--search field -->
+
+    <div class="row card-panel yellow">
+        <form action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s12 m8">
+                    <i class="material-icons prefix light-purple-text">search</i>
+                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                    <label for="query">Search Reviews by name, city, or content</label>
+                </div>
+                <div class="col s12 m4">
+                    <a href="{{ url_for('get_salons') }}" class="pink btn ">Reset</a>
+                    <button type="submit" class="light-blue darken-1 btn ">
+                    Search
+                    </button>
+                </div>
             </div>
-            <div class="col s12 m2"><!-- col m2 -->
-                <a href="{{ url_for('search') }}" class="btn black waves-purple" alt="search"> search</a>
-            </div>
-            <div class="col s12 m2"><!-- col m2 -->
-                <a href="{{ url_for('get_salons') }}" class="btn black" alt="reset">reset </a>
-            </div>
-        </div>
-    </form>
+        </form>
+    </div>
+
 </div>
 </div>
 <div class="row card-panel center-align">
@@ -51,7 +53,7 @@
           </li>
         {% for salon in salons %}
         <li>
-            <div class="collapsible-header white-text purple lighten-1 text-shadow">
+            <div class="collapsible-header white-text purple lighten-1">
                 <div class="col s3">
                 <i class="material-icons">arrow_drop_down</i>
                 <!-- filters visibility of buttons to change reviews to only the creator OR the admin user -->
