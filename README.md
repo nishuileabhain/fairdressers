@@ -1,6 +1,8 @@
 # Fairdressers Website
 [View the live project here.](https://fairdressers.herokuapp.com/)
+
 ![NB Flag](https://www.stonewall.org.uk/sites/default/files/styles/person_hero/public/1280px-nonbinary_flag.svg_.png?itok=sykEzwb2)
+
 This is a community-driven resource to support hairdressers that offer gender neutral pricing and customers who require it. It is designed to be responsibe and accessible on a range of devices.
 
 # User Goals
@@ -16,7 +18,7 @@ This is a community-driven resource to support hairdressers that offer gender ne
 * Provide support to customers who are inconvenienced by gendered pricing and highlight misogynistic pricing practices.
 * Direct customers to businesses who are willing to provide non-gendered pricing in hairdressing services.
 
-# Features to include:
+## Features to include:
 * Create a web application that allows users to upload recommendations of barbers/hairdressers, including establishment name, hairdresser name, link to website and any other relevant fields. Allow users to create reviews about any category of hairdressing service.
 * Create the backend code and frontend form(s) to allow users to add new barbers and reviews to the site, edit them and delete them.
 
@@ -38,4 +40,27 @@ This is a community-driven resource to support hairdressers that offer gender ne
  * As site owner, I want to delete any malicous content
  * As site owner, I want to adjust categories as required
 
+* Design
+ * Colour Scheme
+Colour scheme indicates that this website serves non binary people by using the colours of the non binary flag, which are black, white, yellow and purple. This colour scheme would be familiar and welcoming to people concerned with gender binary issues.
+The flash messages are pink which is a colour synonymous with the LGBT community and the transgender flag.
+ * Typography
+The font has been taken from Materialize CSS
+ * Imagery
+The imagery throughout the site contains people with short hair, many of whom are female or of ambiguous gender. There are also positive representations of the LGBT/NB/transgender community included throughout. 
+ * Wireframes
+Home Page Wireframe - [View](https://share.balsamiq.com/c/rXaCaGKear8nzfsohRaAQ5.png)
+Reviews Page Wireframe - [View](https://share.balsamiq.com/c/42SLMnoV1Nz8Fqrq4i362u.png)
+Profile Page Wireframe - [View](https://share.balsamiq.com/c/mfPS1q8PfEPfkeT1N6w8jn.png)
+Login Page Wireframe - [View](https://share.balsamiq.com/c/grepvFodYeTtih3nraJvES.png)
+Register Page Wireframe - [View](https://share.balsamiq.com/c/vWYeyr1RMA2BdmH1Bryuyu.png)
+Categories Page Wireframe - [View](https://share.balsamiq.com/c/bf5r7PzCcnhL2gn5TWsYQ6.png)
+Add Category Page Wireframe - [View](https://share.balsamiq.com/c/qTjyghsFbL7em5LazwKsBh.png)
+
+
+
+
+* Features
+Responsive on all device sizes
+Interactive elements
 
