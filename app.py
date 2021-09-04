@@ -161,9 +161,10 @@ def edit_salon(salon_id):
         flash("Review successfully changed")
         return redirect(url_for("get_salons"))
 
+    cats = mongo.db.categories.find().sort("category_name", 1)
     salon = mongo.db.salons.find_one({"_id": ObjectId(salon_id)})
     return render_template("edit_salon.html",
-                           salon=salon)
+                           salon=salon, categories=cats)
 
 
 @myapp.route("/delete_salon/<salon_id>")
