@@ -29,7 +29,7 @@
         Write a review. You can edit them later if you need to.
         {% endif %}
       </p>
-      <a href="{{ url_for('add_salon') }}" class="btn purple waves-effect waves-light">New Review</a>
+      <a href="{{ url_for('add_salon') }}" class="btn waves-effect waves-purple btn black">New Review</a>
     </div>
     <!-- pulls in all reviews and filters to those created by this user-->
     <div class="row card-panel yellow">
@@ -41,13 +41,13 @@
         {% for salon in salons %}
         {% if (session.user|lower == salon.created_by|lower) %}
         <li>
-          <div class="collapsible-header white-text purple lighten-1 text-shadow">
+          <div class="collapsible-header white-text purple lighten-1">
             <div class="col s3">
               <i class="material-icons">arrow_drop_down</i>
               <!-- filters visibility of buttons to change reviews to only the creator OR the admin user -->
               {% if (session.user|lower == salon.created_by|lower) %}
               <a href="{{url_for('edit_salon', salon_id=salon._id)}}"
-                class="btn-floating btn-small waves-effect waves-purple "><i class="material-icons">edit</i></a>
+                class="btn-floating btn-small waves-effect waves-purple light-blue "><i class="material-icons">edit</i></a>
               {% endif %}
             </div>
             <div class="col s9">

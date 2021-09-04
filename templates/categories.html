@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col s12 center-align">
-        <a href="{{ url_for('add_category') }}" class="btn-large text-shadow"> Add category</a>
+        <a href="{{ url_for('add_category') }}" class="btn-large"> Add category</a>
         <!--add icon maybe-->
     </div>
 
@@ -13,14 +13,14 @@
 <div class="row">
     {% for category in categories %}
     <div class="col s12 m6">
-        <div class="card white text-shadow center-align">
+        <div class="card white center-align">
             <div class="card-content black-text ">
                 <span class="card-title">{{category.category_name}}</span>
             </div>
             <div class="card-action">
-                <a href="{{url_for('edit_category', category_id=category._id)}}" class="btn">edit</a>
+                <a href="{{url_for('edit_category', category_id=category._id)}}" class="btn blue">edit</a>
 
-                <a href="#confirm_delete-{{ loop.index }}" class="waves-effect waves-purple btn modal-trigger">delete</a>
+                <a href="#confirm_delete-{{ loop.index }}" class="waves-effect waves-purple btn pink modal-trigger">delete</a>
 
                 <!-- Modal Structure -->
                 <div id="confirm_delete-{{ loop.index }}" class="modal">
@@ -30,11 +30,11 @@
                     </div>
                     <div class="modal-footer">
                         <a href="{{url_for('delete_category', category_id=category._id)}}"
-                            class="modal-close waves-effect waves-blue btn-flat">Yes</a>
+                            class="modal-close waves-effect waves-purple btn blue">Yes</a>
                     </div>
                     <div class="modal-footer">
                         <a href="{{url_for('get_categories')}}"
-                            class="modal-close waves-effect waves-red btn-flat">No</a>
+                            class="modal-close waves-effect waves-purple btn pink">No</a>
                     </div>
                 </div>
 
