@@ -218,6 +218,17 @@ def delete_category(category_id):
     return redirect(url_for("get_categories"))
 
 
+@myapp.errorhandler(404)
+# error for invalid url
+def page_not_found(e):
+    return render_template("404.html"), 404
+
+
+@myapp.errorhandler(500)
+# internal server error
+def page_not_found(e):
+    return render_template("500.html"), 500
+
 if __name__ == "__main__":
     myapp.run(host=os.environ.get('IP'),
               port=int(os.environ.get('PORT')), debug=True)
