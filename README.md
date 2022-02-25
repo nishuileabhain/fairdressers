@@ -71,7 +71,7 @@ Interactive elements
 ## Frameworks, Libraries & Programs Used
 * jQuery:
 jQuery came with Bootstrap to make the navbar responsive but was also used for the smooth scroll function in JavaScript.
-Git
+* Git
 Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 * GitHub:
 GitHub is used to store the projects code after being pushed from Git.
@@ -85,13 +85,37 @@ http://google.github.io/material-design-icons/#icon-font-for-the-web
 * Flask:
 Flask is a python micro framework that helps to run common operations without writing too much code
 * MongoDB:
-Thisb is the database used to store data in the format of key value pairs
+This is the database used to store data in the format of key value pairs
 * Randon Keygen
 Used https://randomkeygen.com/ was used to get a fort knox password for connecting to mongodb
  * Jinja
  This is a templating language that allows the writing of python code inside HTML templates, it has been used in this project to insert for-loops and if-statements, as well as inheritance by extending the base template to other templates.
   * [tinypng](https://tinypng.com/)
   Tiny PNG was used to resize photographs for web performance
+
+## Database Schema
+
+A simple datbase of three collections was created in MongoDB.
+
+* Categories:
+ * category_name
+This field is created by the administrator and can be chosen by users from a drop down menu
+
+* Users:
+ * user_name 
+ * password
+The values in these fields are created when somebody registers for the website. 
+
+* Salons
+ * category_name(from Categories)
+ * created_by(user_name from Users)
+ * company_name
+ * description
+ * city
+ * warning
+The created by field is populated automatically from user session data and there is a further creation date attribute that is recorded 
+when a mongo document is created.
+The rest of the fields are populated explicitly by the user when they submit a review.
 
 # Testing
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.

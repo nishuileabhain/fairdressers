@@ -20,20 +20,33 @@
 <div class="card-panel yellow">
 <div class="row">
     <!-- 6 spaces wide on a 12 space grid with 3 spaces on each side-->
-    <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('register') }}">
+    <form class="col s12 m6 offset-m3, registration" id="registration" method="POST" action="{{ url_for('register') }}">
       <div class="card-panel">
         <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col s12" id="unamereq">
+                <!-- <input id="username" name="username" type="text" class="validate" pattern="^[a-zA-Z0-9]{5,15}$" minlength="4" maxlength="15" required> -->
                 <i class="material-icons prefix">account_circle</i>
-                <input id="username" name="username" type="text" class="validate" pattern="^[a-zA-Z0-9]{5,15}$" minlength="5" maxlength="15" required>
+                <input id="username" name="username" type="text" class="validate"  required>
                 <label for="username">Create Username</label>
-              </div>
+                <ul class="inputRequirements">
+                  <li>At least 4 characters long</li>
+                  <li>Must only contain letters (no numbers or special characters)</li>
+                </ul>
+            </div>
         </div>
         <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col s12" id="pwreq">
                 <i class="material-icons prefix">lock</i>
-                <input id="password" name="password" type="password" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" minlength="5" maxlength="15" required>
-                <label for="password">Create Password</label>         
+                <input id="password" name="password" type="password"  class="validate" required>
+                <!-- <input id="password" name="password" type="password" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" minlength="5" maxlength="15" required> -->
+                <label for="password">Create Password</label>
+                <ul class="pwRequirements">
+                  <li>At least 8 characters long (and less than 100 characters)</li>
+                  <li>Contains at least 1 number</li>
+                  <li>Contains at least 1 lowercase letter</li>
+                  <li>Contains at least 1 uppercase letter</li>
+                  <li>Contains a special character (e.g. @ !)</li>
+                </ul>         
             </div>
         </div>
         <div class="row center-align">
@@ -41,8 +54,13 @@
              REGISTER 
             </button>
         </div>
+        <div id="error">
+          <p id="unhideme">blablaba</p>
+        </div>
       </div>
     </form>
+
+
   </div>
 </div>
   <div class="row">
@@ -52,4 +70,7 @@
       </p>
     </div>
   </div>
+  <script src="{{ url_for('static', filename= 'js/registration.js' )}}"></script>
+
+
   {% endblock %}

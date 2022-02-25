@@ -54,3 +54,23 @@ body{
 .collapsible-header {
     text-align: left;
 }
+
+/* registration form styling */
+
+.inputRequirements, .pwRequirements{
+    display: none;
+    font-size: .7rem;
+    color: #9e9e9e;
+}
+
+#unamereq:hover .inputRequirements{
+    display: block;
+}
+/* 
+.pwRequirements{
+    display: none;
+} */
+
+#pwreq:hover .pwRequirements{
+    display: block;
+}
